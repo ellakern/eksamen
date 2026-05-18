@@ -1,0 +1,120 @@
+/* HEADER */
+.header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--primary);
+
+  padding: 0 2rem 0 2rem;
+
+  z-index: 2000;
+}
+
+.header.menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* LOGO */
+.logo img {
+  width: 18rem;
+  display: block;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn img {
+  width: 10rem;
+  transition: 0.3s ease;
+}
+
+.menu-btn:hover img {
+  transform: scale(1.05);
+}
+
+/* FULLSCREEN MENU */
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+
+  background: var(--primary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 999;
+}
+
+.fullscreen-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* NAVIGATION */
+.fullscreen-menu nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+.fullscreen-menu nav ul li {
+  margin: 0.5rem 0;
+}
+
+.fullscreen-menu nav ul li a {
+  text-decoration: none;
+
+  font-family: var(--font-h2);
+  font-size: 6rem;
+  font-weight: 700;
+
+  color: var(--background);
+
+  line-height: 0.9;
+}
+
+/* FOOTER */
+.menu-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.menu-footer p {
+  color: var(--background);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+/* SOCIALS */
+.socials {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+
+  text-align: right;
+}
+
+.socials a {
+  display: block;
+
+  text-decoration: none;
+
+  font-family: var(--font-p);
+  font-size: 2rem;
+
+  color: var(--background);
+}
