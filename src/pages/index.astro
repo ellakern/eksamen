@@ -1,41 +1,84 @@
 ---
-
+import Layout from "../components/layouts/layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Daisy Kunstbar</title>
-	</head>
-	
-	
-	<body>
 
-  <header>
-    <h1>Daisy Kunstbar</h1>
-  </header>
+<Layout>
 
   <main>
 
-    <section class="hero">
+    <!-- HERO -->
+    <section>
+
+      <h1>Daisy Kunstbar</h1>
+
+      <p>
+        "Istedgades måske hyggeligste bar"
+      </p>
+
+      <div>
+
+  <img src="/images/forside.svg" alt="forsidebillede">
+
+        <div>
+          <p>
+            Tekst her...
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="besøg">
+    <!-- BESØG OS -->
+    <section>
+
+      <div>
+<img src="/images/besøgos.jpg" alt="besøgos">
+      </div>
+
+      <div>
+
+        <h2>Besøg os</h2>
+
+        <p>
+          Tekst her...
+        </p>
+
+        <p>Istedgade 44</p>
+        <p>info@email.dk</p>
+        <p>+45 00 00 00 00</p>
+
+      </div>
+
     </section>
 
-    <section class="ikoner">
+    <!-- IKONER -->
+    <section>
+
+      <p></p>
+
     </section>
 
-    <section class="crazyroom">
+    <!-- CRAZY ROOM -->
+    <section>
+
+      <div>
+   <img src="/images/crazyroom.jpg" alt="crazyroom">
+      </div>
+
+      <div>
+
+        <h2>Crazy Room</h2>
+
+        <p>
+          Tekst her...
+        </p>
+
+      </div>
+
     </section>
 
   </main>
 
-  <footer>
-  </footer>
-
-</body>
+</Layout>
