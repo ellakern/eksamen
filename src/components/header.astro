@@ -1,0 +1,53 @@
+---
+import "../styles/header.css";
+---
+
+<header class="header">
+
+  <!-- LOGO -->
+  <a href="/" class="logo">
+    <img src="/daisy_logo.svg" alt="Daisy">
+  </a>
+
+  <!-- MENU BUTTON -->
+  <button class="menu-btn" id="menuToggle">
+    <img src="/disco-knap.svg" alt="Menu">
+  </button>
+
+</header>
+
+<!-- FULLSCREEN MENU -->
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+
+  <nav>
+    <ul>
+      <li><a href="/">Forside</a></li>
+      <li><a href="/kalender">Kalender</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/om">Om</a></li>
+    </ul>
+  </nav>
+
+  <div class="menu-footer">
+    <p>Istedgade 44, 1650 København</p>
+    <p>Åbningstider: onsdag til lørdag 15-24</p>
+  </div>
+
+  <div class="socials">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const fullscreenMenu = document.getElementById("fullscreenMenu");
+  const header = document.querySelector(".header");
+
+  menuToggle?.addEventListener("click", () => {
+    fullscreenMenu?.classList.toggle("active");
+    header?.classList.toggle("menu-open");
+  });
+</script>
