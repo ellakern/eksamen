@@ -57,22 +57,4 @@ p {
 
 
 
-/************OM CSS*************/
 
-.kontakt-section {
-  padding: 6rem 2rem;
-}
-
-.kontakt-container {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-}
-
-.kontakt-box {
-  border: 20px solid #5b0020;
-  padding: 3rem;
-  width: 350px;
-  text-align: center;
-  background-color: #f5f3dd;
-}
