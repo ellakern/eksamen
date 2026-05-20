@@ -1,28 +1,31 @@
 ---
-import Layout from "../components/layouts/layout.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css"
 ---
 
 
 <Layout>
 
-  <main>
+<main class="container">
 
     <!-- HERO -->
-    <section>
-
+   <section class="hero">
+ <div class="hero-title">
       <h1>Daisy Kunstbar</h1>
-
-      <p>
-        "Istedgades måske hyggeligste bar"
-      </p>
-
-      <div>
-
+      <p class="hero-undertitel">
+  "Istedgades måske hyggeligste bar"
+</p>
+   </div>
+   <div class="hero-content">
   <img src="/images/forside.svg" alt="forsidebillede">
 
-        <div>
+  <div class="hero-text">
           <p>
-            Tekst her...
+        På Istedgade 44 finder du Daisy Kunstbar - en lille,
+        kreativ oase midt i byen. Her mødes kunst, hygge og gode
+        samtaler i varme omgivelser, hvor du kan nyde
+        et glas vin, en cocktail eller bare en særlig
+        stemning. Daisy er et sted at opleve og blive inspireret.
           </p>
         </div>
 
@@ -31,49 +34,48 @@ import Layout from "../components/layouts/layout.astro";
     </section>
 
     <!-- BESØG OS -->
-    <section>
+      <section class="besøgos">
 
-      <div>
+
 <img src="/images/besøgos.jpg" alt="besøgos">
-      </div>
-
-      <div>
+        <div class="visit-content">
 
         <h2>Besøg os</h2>
 
         <p>
-          Tekst her...
+        Daisy Kunstabar er et stemningsfuldt samlingspunkt
+        fyldt med kunst, musik og nærvær. Her er plads til 
+        både rolige aftenener, kreative møder og hyggelige 
+        stunder med venner. 
+        Kig forbi til et glas, en udstilling eller bare for 
+        at mærke atmosfæren på Istedgade.
         </p>
 
-        <p>Istedgade 44</p>
-        <p>info@email.dk</p>
-        <p>+45 00 00 00 00</p>
+       <div class="info">
+        <p>Istedgade 44, 1650 København</p>
+        <p>DaisyKunstbar@live.dk</p>
+        <p>+45 10 20 30 40</p>
+      </div>
 
       </div>
 
     </section>
-
-    <!-- IKONER -->
-    <section>
-
-      <p></p>
-
-    </section>
+  
 
     <!-- CRAZY ROOM -->
-    <section>
-
-      <div>
-   <img src="/images/crazyroom.jpg" alt="crazyroom">
-      </div>
-
-      <div>
-
-        <h2>Crazy Room</h2>
+    <section class="crazy-room">
+  <img src="/images/crazyroom.jpg" alt="crazyroom">
+      <div class="crazy-content">
+     <h2>Crazy Room</h2>
+            <p>
+        Træd ind i Crazy Room - et farverigt og legende univers,
+        hvor kreativitet og energi mødes.
+      </p>
 
         <p>
-          Tekst her...
-        </p>
+        Crazy Room kan bookes til fødselsdage,
+        private arrangementer og andre særlige events.
+      </p>
 
       </div>
 
@@ -82,3 +84,187 @@ import Layout from "../components/layouts/layout.astro";
   </main>
 
 </Layout>
+
+<!-- CSS -->
+<style>
+
+.container {
+  width: min(1400px, 92%);
+  margin-inline: auto;
+}
+
+/* HERO */
+
+.hero {
+  padding-top: 2rem;
+}
+
+.hero-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-title p {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+.hero-undertitel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  color: var(--primary);
+
+  font-size: 1.3rem;
+}
+
+.hero-undertitel::before,
+.hero-undertitel::after {
+  content: "";
+
+  width: 250px;
+  height: 1px;
+
+  background: var(--primary);
+
+  opacity: 0.5;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  gap: 2rem;
+
+  align-items: start;
+}
+
+.hero-content img {
+  width: 100%;
+}
+
+.hero-text {
+  padding-top: 5rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* BESØG OS */
+
+.besøgos {
+  background: var(--primary);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4rem;
+
+  padding: 4rem;
+
+  margin-top: 6rem;
+}
+
+.besøgos img {
+  width: 100%;
+}
+
+.visit-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.visit-content h2 {
+  color: var(--accent);
+
+  margin-bottom: 2rem;
+}
+
+.visit-content p {
+  color: #f3d8dc;
+
+  font-size: 1.2rem;
+
+  line-height: 1.7;
+}
+
+.info {
+  margin-top: 3rem;
+
+  border-top: 1px solid rgba(255,255,255,0.3);
+
+  padding-top: 2rem;
+}
+
+/***** Blomster */
+
+/* CRAZY ROOM */
+
+.crazy-room {
+  background: var(--blaa);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4rem;
+
+  padding: 4rem;
+
+  margin-top: 6rem;
+}
+
+.crazy-room img {
+  width: 100%;
+}
+
+.crazy-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.crazy-content h2 {
+  background: var(--accent);
+
+  color: white;
+
+  width: fit-content;
+
+  padding: 0.5rem 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.crazy-content p {
+  font-size: 1.2rem;
+
+  line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .hero-content,
+  .besøgos,
+  .crazy-room {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text {
+    padding-top: 0;
+  }
+
+  .besøgos,
+  .crazy-room {
+    padding: 2rem;
+  }
+
+}
+    
+</style>
