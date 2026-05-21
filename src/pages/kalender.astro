@@ -1,10 +1,283 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css"
+import CalenderCard from "../components/calenderCard.astro";
+
+/*
+TYPE
+*/
+type Event = {
+  id: number;
+  event_titel: string;
+  event_beskrivelse: string;
+  event_tid: string;
+  event_dato: string;
+  maaned: string;
+  billede: string;
+};
+
+/*
+FETCH FRA SUPABASE
+*/
+const response = await fetch(
+  "https://jmyxtekphlukrbhtmode.supabase.co/rest/v1/daisy_kalender?select=*",
+  {
+    headers: {
+      apikey:
+        "sb_publishable_Rp8ZdMOZCHvPhrN-J6FT4Q_wQYFby7C",
+    },
+  }
+);
+
+const events: Event[] = await response.json();
+
+/*
+MONTH ORDER
+*/
+const monthOrder = [
+  "Januar",
+  "Februar",
+  "Marts",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "December"
+];
+
+/*
+GROUP BY MONTH
+*/
+const groupedEvents = events.reduce(
+  (acc: Record<string, Event[]>, event: Event) => {
+
+    const month = event.maaned;
+
+    if (!acc[month]) {
+      acc[month] = [];
+    }
+
+    acc[month].push(event);
+
+    return acc;
+
+  },
+  {}
+);
+
+/*
+SORT MONTHS
+*/
+const sortedGroupedEvents = Object.fromEntries(
+  Object.entries(groupedEvents).sort(
+    ([a], [b]) => monthOrder.indexOf(a) - monthOrder.indexOf(b)
+  )
+);
 ---
 
-<Layout>
+<Layout title="Kalender">
+
+  <section class="calendar">
+
     <h1>Kalender</h1>
-    <h2>hej jeg er en underoverskrift</h2>
-    <p>jeg er alm tekst</p>
+
+    {
+      Object.entries(sortedGroupedEvents).map(([month, monthEvents]) => (
+
+        <div class="month">
+
+          <!-- MÅNED -->
+          <div class="monthTitle">
+            <span></span>
+            <h2>{month}</h2>
+            <span></span>
+          </div>
+
+          {
+            monthEvents.map((event) => (
+
+              <details class="event">
+
+                <!-- KLIK BAR -->
+                <summary>
+
+                  <div class="left">
+                    {event.event_titel}
+                  </div>
+
+                  <div class="right">
+
+                    <!-- DATO -->
+                    <span>
+                      {
+                        new Date(event.event_dato)
+                          .toLocaleDateString("da-DK", {
+                            day: "numeric",
+                            month: "numeric",
+                          })
+                      }
+                    </span>
+
+                    <!-- TID -->
+                    <span>
+                      Kl. {event.event_tid.slice(0,5)}
+                    </span>
+
+                  </div>
+
+                </summary>
+
+                <!-- CARD -->
+                <CalenderCard event={event} />
+
+              </details>
+            ))
+          }
+
+        </div>
+      ))
+    }
+
+  </section>
+
 </Layout>
+
+<style>
+  .calendar {
+    width: min(100%, 900px);
+
+    margin-inline: auto;
+
+    padding:
+      2rem
+      1rem
+      4rem;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  .month {
+    margin-bottom: 3rem;
+  }
+
+  /*
+  MONTH TITLE
+  */
+  .monthTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+  }
+
+  .monthTitle span {
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--primary);
+  }
+
+  .monthTitle h2 {
+    color: var(--primary);
+
+    font-size: 2rem;
+  }
+
+  /*
+  EVENT
+  */
+  .event {
+    border-bottom:
+      1px solid rgba(0,0,0,0.1);
+
+    padding-block: 1rem;
+  }
+
+  /*
+  SUMMARY
+  */
+  summary {
+    list-style: none;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+        transition: 0.3s ease;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /*
+  LEFT
+  */
+  .left {
+    font-family: var(--font-p);
+
+    font-size: 1.3rem;
+
+    color: var(--text);
+  }
+
+  /*
+  RIGHT
+  */
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    color: var(--text);
+
+    font-family: var(--font-p);
+  }
+
+  .right span:first-child {
+    font-size: 1.5rem;
+  }
+
+  .right span:last-child {
+    font-size: 0.9rem;
+  }
+
+  /*
+  SPACE WHEN OPEN
+  */
+  details[open] summary {
+    margin-bottom: 1rem;
+  }
+
+  /*
+  DESKTOP
+  */
+  @media (min-width: 768px) {
+
+    .calendar {
+      padding-inline: 2rem;
+    }
+
+    .left {
+      font-size: 2rem;
+    }
+
+    .right span:first-child {
+      font-size: 2rem;
+    }
+
+    .monthTitle h2 {
+      font-size: 3rem;
+    }
+  }
+</style>
