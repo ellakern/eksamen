@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css"
+import { Image } from "astro:assets";
+import forside from "../assets/forside/forside.svg";
+import besøgos from "../assets/forside/besøgos.jpg";
+import blomster from "../assets/forside/blomster.svg";
+import crazyroom from "../assets/forside/crazyroom.jpg";
 ---
 
 <Layout>
@@ -16,7 +21,10 @@ import "../styles/global.css"
 </p>
    </div>
    <div class="hero-content">
-  <img src="/src/assets/forside/forside.svg" alt="forsidebillede">
+<Image
+  src={forside}
+  alt="Vores forside"
+/>
 
   <div class="hero-text">
           <p>
@@ -36,7 +44,10 @@ import "../styles/global.css"
       <section class="besøgos">
 
 
-<img src="/src/assets/forside/besøgos.jpg" alt="besøgos">
+<Image
+  src={besøgos}
+  alt="Kom og besøg os"
+/>
         <div class="visit-content">
 
         <h2>Besøg os</h2>
@@ -45,7 +56,7 @@ import "../styles/global.css"
   Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt,
   hvor kunst, kultur og fællesskab mødes i øjenhøjde.
    Her er der plads til både fordybelse, inspiration
-    og hyggelige stunder – uanset om du kommer for et glas vin,
+    og hyggelige stunder - uanset om du kommer for et glas vin,
     en koncert eller en udstilling.
 </p>
 
@@ -79,13 +90,19 @@ Se åbningstider på "Om" siden.
   
 <!-- Blomster -->
  <section class="blomster">
-<img src="/src/assets/forside/blomster.svg" alt="blomster">
+<Image
+  src={blomster}
+  alt="Tegnet blomster"
+/>
  </section>
 
 
     <!-- CRAZY ROOM -->
     <section class="crazy-room">
-  <img src="/src/assets/forside/crazyroom.jpg" alt="crazyroom">
+<Image
+  src={crazyroom}
+  alt="Oplev crazyroom"
+/>
       <div class="crazy-content">
      <h2>Crazy Room</h2>
            <p>
