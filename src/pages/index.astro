@@ -41,14 +41,31 @@ import "../styles/global.css"
 
         <h2>Besøg os</h2>
 
-        <p>
-        Daisy Kunstabar er et stemningsfuldt samlingspunkt
-        fyldt med kunst, musik og nærvær. Her er plads til 
-        både rolige aftenener, kreative møder og hyggelige 
-        stunder med venner. 
-        Kig forbi til et glas, en udstilling eller bare for 
-        at mærke atmosfæren på Istedgade.
-        </p>
+       <p>
+  Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt,
+  hvor kunst, kultur og fællesskab mødes i øjenhøjde.
+   Her er der plads til både fordybelse, inspiration
+    og hyggelige stunder – uanset om du kommer for et glas vin,
+    en koncert eller en udstilling.
+</p>
+
+ <p>
+    Hos Daisy handler det om atmosfære, kreativitet
+    og nærvær i unikke omgivelser midt på Istedgade.
+  </p>
+
+<div class="more-text" id="moreText">
+
+
+  <p>
+Se åbningstider på "Om" siden. 
+  </p>
+
+</div>
+
+<button class="more-btn" id="moreBtn">
+  Mere +
+</button>
 
        <div class="info">
         <p>Istedgade 44, 1650 København</p>
@@ -97,7 +114,28 @@ import "../styles/global.css"
     </section>
 
   </main>
+<script>
 
+const button = document.getElementById("moreBtn");
+const text = document.getElementById("moreText");
+
+if (button && text) {
+
+  button.addEventListener("click", () => {
+
+    text.classList.toggle("active");
+
+    if (text.classList.contains("active")) {
+      button.textContent = "Mindre -";
+    } else {
+      button.textContent = "Mere +";
+    }
+
+  });
+
+}
+
+</script> 
 </Layout>
 
 <!-- CSS -->
@@ -207,6 +245,30 @@ font-size: 4rem;
   font-size: 1.2rem;
 
   line-height: 1.7;
+}
+
+.more-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+.more-text.active {
+  max-height: 300px;
+  margin-bottom: 1rem;
+}
+
+.more-btn {
+  background: none;
+  border: none;
+
+  color: var(--accent);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  margin-top: 1rem;
 }
 
 .info {
