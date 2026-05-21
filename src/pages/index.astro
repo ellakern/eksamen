@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/global.css"
 ---
 
-
 <Layout>
 
 <main class="container">
@@ -61,21 +60,37 @@ import "../styles/global.css"
 
     </section>
   
+<!-- Blomster -->
+ <section class="blomster">
+<img src="/images/blomster.svg" alt="blomster">
+ </section>
+
 
     <!-- CRAZY ROOM -->
     <section class="crazy-room">
   <img src="/images/crazyroom.jpg" alt="crazyroom">
       <div class="crazy-content">
      <h2>Crazy Room</h2>
-            <p>
-        Træd ind i Crazy Room - et farverigt og legende univers,
-        hvor kreativitet og energi mødes.
-      </p>
+           <p>
+  Træd ind i Crazy Room – et farverigt og kreativt univers,
+  hvor kunst, hygge og energi smelter sammen i en helt særlig atmosfære.
+</p>
 
-        <p>
-        Crazy Room kan bookes til fødselsdage,
-        private arrangementer og andre særlige events.
-      </p>
+<p>
+  Rummet er skabt til gode samtaler, intime arrangementer
+  og kreative aftener med venner, musik og inspiration.
+</p>
+
+<p>
+  Her kan du nyde et glas vin, holde fødselsdag,
+  samle mennesker omkring kunst og skabe minder
+  i et rum fyldt med personlighed og varme.
+</p>
+
+<p>
+  Crazy Room kan bookes til private events,
+  mindre selskaber og særlige oplevelser hos Daisy Kunstbar.
+</p>
 
       </div>
 
@@ -88,7 +103,7 @@ import "../styles/global.css"
 <!-- CSS -->
 <style>
 
-.container {
+.main {
   width: min(1100px, 90%);
   margin-inline: auto;
 }
@@ -134,7 +149,7 @@ import "../styles/global.css"
 .hero-content {
   display: grid;
 grid-template-columns: 1.8fr 0.8fr;
-
+margin-top: 4rem;
   gap: 2rem;
 
   align-items: start;
@@ -162,21 +177,21 @@ grid-template-columns: 1.8fr 0.8fr;
   grid-template-columns: 1fr 1fr;
 
   gap: 4rem;
-  min-height: 580px;
-  padding: 4rem;
+  min-height: 500px;
+padding: 1rem;
 
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 
 .besøgos img {
-     width: 95%;
+     width: 75%;
 }
 
 .visit-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 420px;
+  max-width: 480px;
 }
 
 .visit-content h2 {
@@ -201,8 +216,24 @@ font-size: 4rem;
 
   padding-top: 2rem;
 }
+/*Blomster */
+.blomster {
+  display: flex;
+  justify-content: center;
 
-/***** Blomster */
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+.blomster img {
+  width: 450px;
+
+  transition: 0.3s ease;
+}
+
+.blomster img:hover {
+  transform: scale(1.08);
+}
+
 
 /* CRAZY ROOM */
 
@@ -214,14 +245,16 @@ font-size: 4rem;
 
   gap: 4rem;
 
-  padding: 4rem;
+  padding: 1rem;
 
-  margin-top: 14rem;
+  margin-top: 8rem;
 
+  margin-right: 4rem;
+  margin-bottom: 4rem;
 }
 
 .crazy-room img {
-   width: 85%;
+   width: 75%;
 }
 
 .crazy-content {
@@ -240,7 +273,7 @@ font-size: 4rem;
 
 
 
-   margin-bottom: 14rem;
+   margin-bottom: 6rem;
 }
 
 .crazy-content p {
