@@ -1,7 +1,142 @@
 ---
-import Layout from "../components/layouts/layout.astro";
+import Layout from "../layouts/Layout.astro";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  import.meta.env.PUBLIC_SUPABASE_URL,
+  import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+);
+
+const { data: products, error } = await supabase
+  .from("daisy_shop")
+  .select("*");
+
+const billeder = [
+  "/images/produkt2.JPG",
+  "/images/produkt3.JPG",
+];
+
+function hentBillede(index: number) {
+  return billeder[index % billeder.length];
+}
 ---
 
 <Layout>
-    <h1>Shop</h1>
+  <main class="shop-page">
+    <section class="shop-hero">
+      <h1>Kunst hos Daisy</h1>
+
+      <nav class="filter-nav">
+        <a href="/shop" data-filter-link="alle">Alle</a>
+        <a href="/shop?kategori=Vægkunst" data-filter-link="Vægkunst">Vægkunst</a>
+        <a href="/shop?kategori=Drikkevarer" data-filter-link="Drikkevarer">Drikkevarer</a>
+      </nav>
+    </section>
+
+    <section class="products">
+      {products?.map((product, index) => (
+        <article class="product-card" data-kategori={product.kategori}>
+          <img src={hentBillede(index)} alt={product.produkt_navn} />
+
+          <div class="product-info">
+            <p>{product.kategori}</p>
+            <h2>{product.produkt_navn}</h2>
+            <p>{product.pris} kr.</p>
+            <p>{product.størrelse}</p>
+
+            <button
+              class="read-more"
+              data-navn={product.produkt_navn}
+              data-kategori={product.kategori}
+              data-pris={product.pris}
+              data-storrelse={product.størrelse}
+              data-beskrivelse={product.produkt_beskrivelse}
+              data-billede={hentBillede(index)}
+            >
+              Læs mere
+            </button>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="popup" id="popup">
+      <div class="popup-content">
+        <button class="close-popup" id="closePopup">×</button>
+
+        <img id="popupBillede" src="" alt="" />
+
+        <div class="popup-text">
+          <p id="popupKategori"></p>
+          <h2 id="popupNavn"></h2>
+          <p id="popupPris"></p>
+          <p id="popupStorrelse"></p>
+          <p id="popupBeskrivelse"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    // FILTER HIGHLIGHT
+    const filterLinks = document.querySelectorAll("[data-filter-link]");
+    const currentKategori = new URLSearchParams(window.location.search).get("kategori");
+
+    filterLinks.forEach((link) => {
+      const linkKategori = link.getAttribute("data-filter-link");
+
+      if (!currentKategori && linkKategori === "alle") {
+        link.classList.add("active");
+      }
+
+      if (currentKategori === linkKategori) {
+        link.classList.add("active");
+      }
+    });
+
+    // FILTER CARDS
+    const cards = document.querySelectorAll(".product-card");
+
+    if (currentKategori) {
+      cards.forEach((card) => {
+        if (card.getAttribute("data-kategori") === currentKategori) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // POPUP
+    const buttons = document.querySelectorAll(".read-more");
+    const popup = document.querySelector("#popup");
+    const closePopup = document.querySelector("#closePopup");
+
+    const popupBillede = document.querySelector("#popupBillede");
+    const popupKategori = document.querySelector("#popupKategori");
+    const popupNavn = document.querySelector("#popupNavn");
+    const popupPris = document.querySelector("#popupPris");
+    const popupStorrelse = document.querySelector("#popupStorrelse");
+    const popupBeskrivelse = document.querySelector("#popupBeskrivelse");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        popupBillede.src = button.getAttribute("data-billede");
+        popupBillede.alt = button.getAttribute("data-navn");
+
+        popupKategori.textContent = button.getAttribute("data-kategori");
+        popupNavn.textContent = button.getAttribute("data-navn");
+        popupPris.textContent = button.getAttribute("data-pris") + " kr.";
+        popupStorrelse.textContent = button.getAttribute("data-storrelse");
+        popupBeskrivelse.textContent =
+          button.getAttribute("data-beskrivelse");
+
+        popup.classList.add("active");
+      });
+    });
+
+    closePopup.addEventListener("click", () => {
+      popup.classList.remove("active");
+    });
+  </script>
 </Layout>
