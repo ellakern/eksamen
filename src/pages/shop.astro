@@ -1,16 +1,28 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
-import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  import.meta.env.PUBLIC_SUPABASE_URL,
-  import.meta.env.PUBLIC_SUPABASE_ANON_KEY
-);
+/*
+FETCH FRA SUPABASE
+*/
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/daisy_shop?select=*`;
 
-const { data: products, error } = await supabase
-  .from("daisy_shop")
-  .select("*");
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const products = await fetch(url, options)
+  .then((res) => res.json());
+
+console.log(products);
+
+/*
+BILLEDER
+*/
 const billeder = [
   "/images/produkt2.JPG",
   "/images/produkt3.JPG",
