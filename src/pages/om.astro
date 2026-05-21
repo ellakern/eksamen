@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import forside from "../assets/om/forside.svg";
+import tryghed from "../assets/om/tryghed.jpeg";
+import samvear from "../assets/om/samvear.jpeg";
+import diversitet from "../assets/om/diversitet.jpeg";
+---
+
 ---
 
 <Layout>
@@ -7,7 +13,7 @@ import Layout from "../layouts/Layout.astro";
     <section class="hero">
       <div class="hero-content">
         <h1>OM DAISY</h1>
-        <img src="/images/forside.svg" alt="forsidebillede" />
+        <img src={forside.src} alt="forsidebillede" />
         <p>
           Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt, hvor
           kunst, kultur og fællesskab mødes i øjenhøjde. Her er der plads til
@@ -38,7 +44,7 @@ import Layout from "../layouts/Layout.astro";
               samtaler i varme omgivelser.
             </p>
 
-            <img src="/images/samvear.jpeg" alt="billede1om" />
+            <img src={samvear.src} alt="billede1om" />
           </div>
 
           <!-- CARD 2 -->
@@ -50,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
               hjemme – uanset hvem man er.
             </p>
 
-            <img src="/images/tryghed.jpeg" alt="billed2om" />
+            <img src={tryghed.src} alt="billed2om" />
           </div>
 
           <!-- CARD 3 -->
@@ -62,7 +68,7 @@ import Layout from "../layouts/Layout.astro";
               perspektiver og fællesskab.
             </p>
 
-            <img src="/images/diversitet.jpeg" alt="billede3om" />
+            <img src={diversitet.src} alt="billede3om" />
           </div>
         </div>
       </div>
