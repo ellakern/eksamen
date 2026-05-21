@@ -89,19 +89,20 @@ import "../styles/global.css"
 <style>
 
 .container {
-  width: min(1400px, 92%);
+  width: min(1100px, 90%);
   margin-inline: auto;
 }
 
 /* HERO */
 
 .hero {
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
-.hero-title {
-  text-align: center;
-  margin-bottom: 4rem;
+.hero-title h1 {
+  font-size: 5rem;
+  color: var(--primary);
+  line-height: 1;
 }
 
 .hero-title p {
@@ -113,28 +114,26 @@ import "../styles/global.css"
   align-items: center;
   justify-content: center;
 
-  gap: 2rem;
+  gap: 1rem;
 
   color: var(--primary);
 
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .hero-undertitel::before,
 .hero-undertitel::after {
   content: "";
 
-  width: 250px;
+  width: 220px;
   height: 1px;
 
-  background: var(--primary);
-
-  opacity: 0.5;
+  background: rgba(122, 0, 8, 0.4);
 }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+grid-template-columns: 1.8fr 0.8fr;
 
   gap: 2rem;
 
@@ -142,11 +141,11 @@ import "../styles/global.css"
 }
 
 .hero-content img {
-  width: 100%;
+  width: 85%;
 }
 
 .hero-text {
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .hero-text p {
@@ -163,25 +162,27 @@ import "../styles/global.css"
   grid-template-columns: 1fr 1fr;
 
   gap: 4rem;
-
+  min-height: 580px;
   padding: 4rem;
 
-  margin-top: 6rem;
+  margin-top: 8rem;
 }
 
 .besøgos img {
-  width: 100%;
+     width: 95%;
 }
 
 .visit-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 420px;
 }
 
 .visit-content h2 {
   color: var(--accent);
-
+font-size: 4rem;
+  font-weight: 400;
   margin-bottom: 2rem;
 }
 
@@ -215,11 +216,12 @@ import "../styles/global.css"
 
   padding: 4rem;
 
-  margin-top: 6rem;
+  margin-top: 14rem;
+
 }
 
 .crazy-room img {
-  width: 100%;
+   width: 85%;
 }
 
 .crazy-content {
@@ -232,16 +234,17 @@ import "../styles/global.css"
   background: var(--accent);
 
   color: white;
-
+  padding: 0.8rem 4rem 0.8rem 1rem;
+  font-size: 2.5rem;
   width: fit-content;
 
-  padding: 0.5rem 1rem;
 
-  margin-bottom: 2rem;
+
+   margin-bottom: 14rem;
 }
 
 .crazy-content p {
-  font-size: 1.2rem;
+font-size: 1rem;
 
   line-height: 1.7;
 }

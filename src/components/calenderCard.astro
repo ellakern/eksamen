@@ -1,0 +1,119 @@
+---
+const { event } = Astro.props;
+---
+
+<div class="card">
+
+  <!-- BILLEDE -->
+  <div class="image">
+
+    {
+      event.billede && (
+        <img
+          src={event.billede}
+          alt={event.event_titel}
+        />
+      )
+    }
+
+  </div>
+
+  <!-- TEKST -->
+  <div class="content">
+
+    <p>
+      {event.event_beskrivelse}
+    </p>
+
+    <div class="bottom">
+
+      <span>
+        {event.kategori}
+      </span>
+
+      <span>
+        Kl. {event.event_tid.slice(0,5)}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .card {
+    background: var(--primary);
+
+    padding: 1rem;
+
+    display: grid;
+    gap: 1rem;
+
+    border-radius: 7px;
+  }
+
+  /*
+  IMAGE
+  */
+  .image {
+    background: lightgray;
+
+    min-height: 180px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+  /*
+  CONTENT
+  */
+  .content p {
+    color: white;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+  }
+
+  /*
+  BOTTOM
+  */
+  .bottom {
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .bottom span {
+    color: white;
+
+    font-size: 0.9rem;
+  }
+
+  /*
+  DESKTOP
+  */
+  @media (min-width: 768px) {
+
+    .card {
+      grid-template-columns: 220px 1fr;
+
+      align-items: center;
+
+      padding: 1.5rem;
+    }
+
+    .image {
+      min-height: 140px;
+    }
+  }
+</style>
