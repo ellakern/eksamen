@@ -17,7 +17,7 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
         <p class="hero-undertitel">"Istedgades måske hyggeligste bar"</p>
       </div>
       <div class="hero-content">
-        <Image src={forside} alt="Vores forside" width={800} height={600} />
+    <img src={forside.src} alt="Illustration af Daisy Kunstbar" />
 
         <div class="hero-text">
           <p>
@@ -34,10 +34,12 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
     <section class="besøgos">
       <Image
         src={besøgos}
-        alt="Kom og besøg os"
+        alt="Interiør og stemning hos Daisy Kunstbar"
         width={800}
         height={600}
         format="webp"
+        quality={80}
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
       <div class="visit-content">
         <h2>Besøg os</h2>
@@ -70,17 +72,19 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
 
     <!-- Blomster -->
     <section class="blomster">
-      <Image src={blomster} alt="Tegnet blomster" width={800} height={600} />
+<img src={blomster.src} alt="Illustrerede blomster" />
     </section>
     <!-- CRAZY ROOM -->
     <section class="crazy-room">
       <Image
-        src={crazyroom}
-        alt="Oplev crazyroom"
-        width={800}
-        height={600}
-        format="webp"
-      />
+  src={crazyroom}
+  alt="Interiør fra Crazy Room hos Daisy Kunstbar"
+  width={800}
+  height={600}
+  format="webp"
+  quality={80}
+  sizes="(max-width: 768px) 100vw, 50vw"
+/>
 
       <div class="crazy-content">
         <h2>Crazy Room</h2>
@@ -171,20 +175,31 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
 
   .hero-content {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 4rem;
     gap: 1rem;
     align-items: center;
+    display: grid;
+grid-template-columns: 1fr 1fr;
+
+align-items: center;
+
+gap: 5rem;
+
+padding-inline: 4rem;
   }
 
   .hero-content img {
     width: 100%;
   }
 
-  .hero-text {
-    padding-top: 2rem;
-  }
+ .hero-text {
+  max-width: 500px;
 
+  justify-self: center;
+
+  text-align: center;
+}
   .hero-text p {
     font-size: 1.2rem;
     line-height: 1.6;
@@ -192,22 +207,33 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
 
   /* BESØG OS */
 
-  .besøgos {
-    background: var(--primary);
+ .besøgos {
+  background: var(--primary);
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
 
-    gap: 4rem;
-    min-height: 500px;
-    padding: 1rem;
+  gap: 4rem;
 
-    margin-top: 2rem;
-  }
+  padding: 4rem;
 
-  .besøgos img {
-    width: 75%;
-  }
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+
+
+  min-height: 650px;
+
+  align-items: center;
+}
+
+ .besøgos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+}
 
   .visit-content {
     display: flex;
@@ -226,7 +252,7 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
   .visit-content p {
     color: #f3d8dc;
 
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 
     line-height: 1.7;
   }
@@ -282,26 +308,34 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
 
   /* CRAZY ROOM */
 
-  .crazy-room {
-    background: var(--blaa);
+.crazy-room {
+  background: var(--blaa);
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
 
-    gap: 1rem;
+  gap: 4rem;
 
-    padding: 1rem;
+  padding: 4rem;
 
-    margin-top: 8rem;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
 
-    margin-right: 4rem;
-    margin-bottom: 4rem;
-  }
+  margin-right: 6rem;
+
+  min-height: 650px;
+
+  align-items: center;
+}
 
   .crazy-room img {
-    width: 100%;
-    height: auto;
-  }
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
 
   .crazy-content {
     display: flex;
