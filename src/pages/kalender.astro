@@ -36,22 +36,16 @@ type Event = {
 };
 
 /*
-MONTH ORDER
+SORT EVENTS BY DATE + TIME
 */
-const monthOrder = [
-  "Januar",
-  "Februar",
-  "Marts",
-  "April",
-  "Maj",
-  "Juni",
-  "Juli",
-  "August",
-  "September",
-  "Oktober",
-  "November",
-  "December"
-];
+data.sort((a: Event, b: Event) => {
+
+  const dateA = new Date(`${a.event_dato}T${a.event_tid}`);
+  const dateB = new Date(`${b.event_dato}T${b.event_tid}`);
+
+  return dateA.getTime() - dateB.getTime();
+
+});
 
 /*
 GROUP BY MONTH
@@ -59,27 +53,24 @@ GROUP BY MONTH
 const groupedEvents = data.reduce(
   (acc: Record<string, Event[]>, event: Event) => {
 
-    const month = event.maaned;
+    const month = new Date(event.event_dato)
+      .toLocaleDateString("da-DK", {
+        month: "long",
+      });
 
-    if (!acc[month]) {
-      acc[month] = [];
+    const capitalizedMonth =
+      month.charAt(0).toUpperCase() + month.slice(1);
+
+    if (!acc[capitalizedMonth]) {
+      acc[capitalizedMonth] = [];
     }
 
-    acc[month].push(event);
+    acc[capitalizedMonth].push(event);
 
     return acc;
 
   },
   {}
-);
-
-/*
-SORT MONTHS
-*/
-const sortedGroupedEvents = Object.fromEntries(
-  Object.entries(groupedEvents).sort(
-    ([a], [b]) => monthOrder.indexOf(a) - monthOrder.indexOf(b)
-  )
 );
 ---
 
@@ -90,7 +81,7 @@ const sortedGroupedEvents = Object.fromEntries(
     <h1>Kalender</h1>
 
     {
-      Object.entries(sortedGroupedEvents).map(([month, monthEvents]) => (
+      Object.entries(groupedEvents).map(([month, monthEvents]) => (
 
         <div class="month">
 
@@ -151,6 +142,8 @@ const sortedGroupedEvents = Object.fromEntries(
 </Layout>
 
 <style>
+    <Image src={foto} alt="Foto" format="webp" />
+
   .calendar {
     width: min(100%, 900px);
 
