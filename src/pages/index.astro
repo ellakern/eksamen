@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css"
+import "../styles/global.css";
 import { Image } from "astro:assets";
 import forside from "../assets/forside/forside.svg";
 import besøgos from "../assets/forside/besøgos.jpg";
@@ -9,390 +9,340 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
 ---
 
 <Layout>
-
-<main class="container">
-
+  <main class="container">
     <!-- HERO -->
-   <section class="hero">
- <div class="hero-title">
-      <h1>Daisy Kunstbar</h1>
-      <p class="hero-undertitel">
-  "Istedgades måske hyggeligste bar"
-</p>
-   </div>
-   <div class="hero-content">
-<Image
-  src={forside}
-  alt="Vores forside"
-width={800}
-  height={600}
-/>
-
-  <div class="hero-text">
-          <p>
-        På Istedgade 44 finder du Daisy Kunstbar - en lille,
-        kreativ oase midt i byen. Her mødes kunst, hygge og gode
-        samtaler i varme omgivelser, hvor du kan nyde
-        et glas vin, en cocktail eller bare en særlig
-        stemning. Daisy er et sted at opleve og blive inspireret.
-          </p>
-        
-        </div>
-
+    <section class="hero">
+      <div class="hero-title">
+        <h1>Daisy Kunstbar</h1>
+        <p class="hero-undertitel">"Istedgades måske hyggeligste bar"</p>
       </div>
+      <div class="hero-content">
+        <Image src={forside} alt="Vores forside" width={800} height={600} />
 
+        <div class="hero-text">
+          <p>
+            På Istedgade 44 finder du Daisy Kunstbar - en lille, kreativ oase
+            midt i byen. Her mødes kunst, hygge og gode samtaler i varme
+            omgivelser, hvor du kan nyde et glas vin, en cocktail eller bare en
+            særlig stemning. Daisy er et sted at opleve og blive inspireret.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- BESØG OS -->
-      <section class="besøgos">
-
-
-<Image
-  src={besøgos}
-  alt="Kom og besøg os"
-  width={800}
-  height={600}
-  format="webp" />
-        <div class="visit-content">
-
+    <section class="besøgos">
+      <Image
+        src={besøgos}
+        alt="Kom og besøg os"
+        width={800}
+        height={600}
+        format="webp"
+      />
+      <div class="visit-content">
         <h2>Besøg os</h2>
 
-       <p>
-  Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt,
-  hvor kunst, kultur og fællesskab mødes i øjenhøjde.
-   Her er der plads til både fordybelse, inspiration
-    og hyggelige stunder - uanset om du kommer for et glas vin,
-    en koncert eller en udstilling.
-</p>
+        <p>
+          Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt, hvor
+          kunst, kultur og fællesskab mødes i øjenhøjde. Her er der plads til
+          både fordybelse, inspiration og hyggelige stunder - uanset om du
+          kommer for et glas vin, en koncert eller en udstilling.
+        </p>
 
- <p>
-    Hos Daisy handler det om atmosfære, kreativitet
-    og nærvær i unikke omgivelser midt på Istedgade.
-  </p>
+        <p>
+          Hos Daisy handler det om atmosfære, kreativitet og nærvær i unikke
+          omgivelser midt på Istedgade.
+        </p>
 
-<div class="more-text" id="moreText">
+        <div class="more-text" id="moreText">
+          <p>Se åbningstider på "Om" siden.</p>
+        </div>
 
+        <button class="more-btn" id="moreBtn"> Mere + </button>
 
-  <p>
-Se åbningstider på "Om" siden. 
-  </p>
-
-</div>
-
-<button class="more-btn" id="moreBtn">
-  Mere +
-</button>
-
-       <div class="info">
-        <p>Istedgade 44, 1650 København</p>
-        <p>DaisyKunstbar@live.dk</p>
-        <p>+45 10 20 30 40</p>
+        <div class="info">
+          <p>Istedgade 44, 1650 København</p>
+          <p>DaisyKunstbar@live.dk</p>
+          <p>+45 10 20 30 40</p>
+        </div>
       </div>
-
-      </div>
-
     </section>
 
-  <!-- Blomster -->
- <section class="blomster">
-<Image
-  src={blomster}
-  alt="Tegnet blomster"
-  width={800}
-  height={600}>
+    <!-- Blomster -->
+    <section class="blomster">
+      <Image src={blomster} alt="Tegnet blomster" width={800} height={600} />
 
- </section>
+      <!-- CRAZY ROOM -->
+      <section class="crazy-room">
+        <Image
+          src={crazyroom}
+          alt="Oplev crazyroom"
+          width={800}
+          height={600}
+          format="webp"
+        />
 
+        <div class="crazy-content">
+          <h2>Crazy Room</h2>
+          <p>
+            Træd ind i Crazy Room - et farverigt og kreativt univers, hvor
+            kunst, hygge og energi smelter sammen i en helt særlig atmosfære.
+          </p>
 
-    <!-- CRAZY ROOM -->
-    <section class="crazy-room">
-<Image
-  src={crazyroom}
-  alt="Oplev crazyroom"
-  width={800}
-  height={600}
-  format="webp" />
+          <p>
+            Rummet er skabt til gode samtaler, intime arrangementer og kreative
+            aftener med venner, musik og inspiration.
+          </p>
 
-      <div class="crazy-content">
-     <h2>Crazy Room</h2>
-           <p>
-  Træd ind i Crazy Room - et farverigt og kreativt univers,
-  hvor kunst, hygge og energi smelter sammen i en helt særlig atmosfære.
-</p>
+          <p>
+            Her kan du nyde et glas vin, holde fødselsdag, samle mennesker
+            omkring kunst og skabe minder i et rum fyldt med personlighed og
+            varme.
+          </p>
 
-<p>
-  Rummet er skabt til gode samtaler, intime arrangementer
-  og kreative aftener med venner, musik og inspiration.
-</p>
-
-<p>
-  Her kan du nyde et glas vin, holde fødselsdag,
-  samle mennesker omkring kunst og skabe minder
-  i et rum fyldt med personlighed og varme.
-</p>
-
-<p>
-  Crazy Room kan bookes til private events,
-  mindre selskaber og særlige oplevelser hos Daisy Kunstbar.
-</p>
-
-      </div>
-
+          <p>
+            Crazy Room kan bookes til private events, mindre selskaber og
+            særlige oplevelser hos Daisy Kunstbar.
+          </p>
+        </div>
+      </section>
     </section>
+    <script>
+      const button = document.getElementById("moreBtn");
+      const text = document.getElementById("moreText");
 
+      if (button && text) {
+        button.addEventListener("click", () => {
+          text.classList.toggle("active");
+
+          if (text.classList.contains("active")) {
+            button.textContent = "Mindre -";
+          } else {
+            button.textContent = "Mere +";
+          }
+        });
+      }
+    </script>
   </main>
-<script>
 
-const button = document.getElementById("moreBtn");
-const text = document.getElementById("moreText");
-
-if (button && text) {
-
-  button.addEventListener("click", () => {
-
-    text.classList.toggle("active");
-
-    if (text.classList.contains("active")) {
-      button.textContent = "Mindre -";
-    } else {
-      button.textContent = "Mere +";
+  <!-- CSS -->
+  <style>
+    .main {
+      width: min(1100px, 90%);
+      margin-inline: auto;
     }
 
-  });
+    /* HERO */
+
+    .hero {
+      padding-top: 5rem;
+    }
+
+    .hero-title h1 {
+      font-size: 5rem;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .hero-title p {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+    }
+    .hero-undertitel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-}
+      gap: 1rem;
 
-</script> 
-</Layout>
+      color: var(--primary);
 
-<!-- CSS -->
-<style>
+      font-size: 1.2rem;
+    }
 
-.main {
-  width: min(1100px, 90%);
-  margin-inline: auto;
-}
+    .hero-undertitel::before,
+    .hero-undertitel::after {
+      content: "";
 
-/* HERO */
+      width: 220px;
+      height: 1px;
 
-.hero {
-  padding-top: 5rem;
-}
+      background: rgba(122, 0, 8, 0.4);
+    }
 
-.hero-title h1 {
-  font-size: 5rem;
-  color: var(--primary);
-  line-height: 1;
-}
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      margin-top: 4rem;
+      gap: 1rem;
+      align-items: center;
+    }
 
-.hero-title p {
-  font-size: 1.3rem;
-  margin-top: 0.5rem;
-}
-.hero-undertitel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    .hero-content img {
+      width: 100%;
+    }
 
-  gap: 1rem;
+    .hero-text {
+      padding-top: 2rem;
+    }
 
-  color: var(--primary);
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
 
-  font-size: 1.2rem;
-}
+    /* BESØG OS */
 
-.hero-undertitel::before,
-.hero-undertitel::after {
-  content: "";
+    .besøgos {
+      background: var(--primary);
 
-  width: 220px;
-  height: 1px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-  background: rgba(122, 0, 8, 0.4);
-}
+      gap: 4rem;
+      min-height: 500px;
+      padding: 1rem;
 
-.hero-content {
-  display: grid;
-grid-template-columns: 1.8fr 0.8fr;
-margin-top: 4rem;
-  gap: 2rem;
+      margin-top: 2rem;
+    }
 
-  align-items: center;
-}
+    .besøgos img {
+      width: 75%;
+    }
 
-.hero-content img {
-  width: 75%;
-}
+    .visit-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 480px;
+    }
 
-.hero-text {
-  padding-top: 2rem;
-  display: flex;
-  align-items: center;
-}
+    .visit-content h2 {
+      color: var(--accent);
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
 
+    .visit-content p {
+      color: #f3d8dc;
 
-.hero-text p {
-  display: flex;
-  align-items: center;
-  font-size: 1.3rem;
-}
+      font-size: 1.2rem;
 
-/* BESØG OS */
+      line-height: 1.7;
+    }
 
-.besøgos {
-  background: var(--primary);
+    .more-text {
+      max-height: 0;
+      overflow: hidden;
+      transition: 0.4s ease;
+    }
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    .more-text.active {
+      max-height: 300px;
+      margin-bottom: 1rem;
+    }
 
-  gap: 4rem;
-  min-height: 500px;
-padding: 1rem;
+    .more-btn {
+      background: none;
+      border: none;
 
-  margin-top: 2rem;
-}
+      color: var(--accent);
 
-.besøgos img {
-     width: 75%;
-}
+      font-size: 1rem;
 
-.visit-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 480px;
-}
+      cursor: pointer;
 
-.visit-content h2 {
-  color: var(--accent);
-font-size: 4rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-}
+      margin-top: 1rem;
+    }
 
-.visit-content p {
-  color: #f3d8dc;
+    .info {
+      margin-top: 3rem;
 
-  font-size: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
 
-  line-height: 1.7;
-}
+      padding-top: 2rem;
+    }
+    /*Blomster */
+    .blomster {
+      display: flex;
+      justify-content: center;
 
-.more-text {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.4s ease;
-}
+      margin-top: 8rem;
+      margin-bottom: 8rem;
+    }
+    .blomster img {
+      width: 450px;
 
-.more-text.active {
-  max-height: 300px;
-  margin-bottom: 1rem;
-}
+      transition: 0.3s ease;
+    }
 
-.more-btn {
-  background: none;
-  border: none;
+    .blomster img:hover {
+      transform: scale(1.08);
+    }
 
-  color: var(--accent);
+    /* CRAZY ROOM */
 
-  font-size: 1rem;
+    .crazy-room {
+      background: var(--blaa);
 
-  cursor: pointer;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-  margin-top: 1rem;
-}
+      gap: 1rem;
 
-.info {
-  margin-top: 3rem;
+      padding: 1rem;
 
-  border-top: 1px solid rgba(255,255,255,0.3);
+      margin-top: 8rem;
 
-  padding-top: 2rem;
-}
-/*Blomster */
-.blomster {
-  display: flex;
-  justify-content: center;
+      margin-right: 4rem;
+      margin-bottom: 4rem;
+    }
 
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-.blomster img {
-  width: 300px;
+    .crazy-room img {
+      width: 75%;
+    }
 
-  transition: 0.3s ease;
-}
+    .crazy-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.blomster img:hover {
-  transform: scale(1.08);
-}
+    .crazy-content h2 {
+      background: var(--accent);
 
-/* CRAZY ROOM */
+      color: white;
+      padding: 0.8rem 4rem 0.8rem 1rem;
+      font-size: 2.5rem;
+      width: fit-content;
 
-.crazy-room {
-  background: var(--blaa);
+      margin-bottom: 3rem;
+    }
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    .crazy-content p {
+      font-size: 1rem;
 
-  gap: 1rem;
+      line-height: 1.7;
+    }
 
-  padding: 1rem;
+    /* MOBILE */
 
-  margin-top: 8rem;
+    @media (max-width: 900px) {
+      .hero-content,
+      .besøgos,
+      .crazy-room {
+        grid-template-columns: 1fr;
+      }
 
-  margin-right: 4rem;
-  margin-bottom: 4rem;
-}
+      .hero-text {
+        padding-top: 0;
+      }
 
-.crazy-room img {
-   width: 75%;
-}
-
-.crazy-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.crazy-content h2 {
-  background: var(--accent);
-
-  color: white;
-  padding: 0.8rem 4rem 0.8rem 1rem;
-  font-size: 2.5rem;
-  width: fit-content;
-
-
-
-   margin-bottom: 3rem;
-}
-
-.crazy-content p {
-font-size: 1rem;
-
-  line-height: 1.7;
-}
-
-/* MOBILE */
-
-@media (max-width: 900px) {
-
-  .hero-content,
-  .besøgos,
-  .crazy-room {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-text {
-    padding-top: 0;
-  }
-
-  .besøgos,
-  .crazy-room {
-    padding: 2rem;
-  }
-
-}
-    
-</style>
+      .besøgos,
+      .crazy-room {
+        padding: 2rem;
+      }
+    }
+  </style></Layout
+>
