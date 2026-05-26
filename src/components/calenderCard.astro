@@ -1,5 +1,18 @@
 ---
 const { event } = Astro.props;
+
+import { Image } from 'astro:assets';
+
+const images = import.meta.glob(
+  "../assets/kalender/*.{jpg,jpeg,png,webp}",
+  {
+    eager: true,
+  }
+);
+
+const imagePath = `../assets/kalender/${event.billede}`;
+
+const image = images[imagePath] as any;
 ---
 
 <div class="card">
@@ -8,13 +21,14 @@ const { event } = Astro.props;
   <div class="image">
 
     {
-      event.billede && (
-        <img
-          src={event.billede}
-          alt={event.event_titel}
-        />
-      )
-    }
+  image && (
+    <Image
+      src={image.default}
+      alt={event.event_titel}
+      width={800}
+    />
+  )
+}
 
   </div>
 
