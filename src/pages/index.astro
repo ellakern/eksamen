@@ -71,278 +71,277 @@ import crazyroom from "../assets/forside/crazyroom.jpg";
     <!-- Blomster -->
     <section class="blomster">
       <Image src={blomster} alt="Tegnet blomster" width={800} height={600} />
-
-      <!-- CRAZY ROOM -->
-      <section class="crazy-room">
-        <Image
-          src={crazyroom}
-          alt="Oplev crazyroom"
-          width={800}
-          height={600}
-          format="webp"
-        />
-
-        <div class="crazy-content">
-          <h2>Crazy Room</h2>
-          <p>
-            Træd ind i Crazy Room - et farverigt og kreativt univers, hvor
-            kunst, hygge og energi smelter sammen i en helt særlig atmosfære.
-          </p>
-
-          <p>
-            Rummet er skabt til gode samtaler, intime arrangementer og kreative
-            aftener med venner, musik og inspiration.
-          </p>
-
-          <p>
-            Her kan du nyde et glas vin, holde fødselsdag, samle mennesker
-            omkring kunst og skabe minder i et rum fyldt med personlighed og
-            varme.
-          </p>
-
-          <p>
-            Crazy Room kan bookes til private events, mindre selskaber og
-            særlige oplevelser hos Daisy Kunstbar.
-          </p>
-        </div>
-      </section>
     </section>
-    <script>
-      const button = document.getElementById("moreBtn");
-      const text = document.getElementById("moreText");
+    <!-- CRAZY ROOM -->
+    <section class="crazy-room">
+      <Image
+        src={crazyroom}
+        alt="Oplev crazyroom"
+        width={800}
+        height={600}
+        format="webp"
+      />
 
-      if (button && text) {
-        button.addEventListener("click", () => {
-          text.classList.toggle("active");
+      <div class="crazy-content">
+        <h2>Crazy Room</h2>
+        <p>
+          Træd ind i Crazy Room - et farverigt og kreativt univers, hvor kunst,
+          hygge og energi smelter sammen i en helt særlig atmosfære.
+        </p>
 
-          if (text.classList.contains("active")) {
-            button.textContent = "Mindre -";
-          } else {
-            button.textContent = "Mere +";
-          }
-        });
-      }
-    </script>
+        <p>
+          Rummet er skabt til gode samtaler, intime arrangementer og kreative
+          aftener med venner, musik og inspiration.
+        </p>
+
+        <p>
+          Her kan du nyde et glas vin, holde fødselsdag, samle mennesker omkring
+          kunst og skabe minder i et rum fyldt med personlighed og varme.
+        </p>
+
+        <p>
+          Crazy Room kan bookes til private events, mindre selskaber og særlige
+          oplevelser hos Daisy Kunstbar.
+        </p>
+      </div>
+    </section>
   </main>
+  <script>
+    const button = document.getElementById("moreBtn");
+    const text = document.getElementById("moreText");
 
-  <!-- CSS -->
-  <style>
-    .main {
-      width: min(1100px, 90%);
-      margin-inline: auto;
+    if (button && text) {
+      button.addEventListener("click", () => {
+        text.classList.toggle("active");
+
+        if (text.classList.contains("active")) {
+          button.textContent = "Mindre -";
+        } else {
+          button.textContent = "Mere +";
+        }
+      });
     }
+  </script>
+</Layout>
 
-    /* HERO */
+<!-- CSS -->
+<style>
+  .main {
+    width: min(1100px, 90%);
+    margin-inline: auto;
+  }
 
-    .hero {
-      padding-top: 5rem;
-    }
+  /* HERO */
 
-    .hero-title h1 {
-      font-size: 5rem;
-      color: var(--primary);
-      line-height: 1;
-    }
+  .hero {
+    padding-top: 5rem;
+  }
 
-    .hero-title p {
-      font-size: 1.3rem;
-      margin-top: 0.5rem;
-    }
-    .hero-undertitel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .hero-title h1 {
+    font-size: 5rem;
+    color: var(--primary);
+    line-height: 1;
+  }
 
-      gap: 1rem;
+  .hero-title p {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  }
+  .hero-undertitel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      color: var(--primary);
+    gap: 1rem;
 
-      font-size: 1.2rem;
-    }
+    color: var(--primary);
 
-    .hero-undertitel::before,
-    .hero-undertitel::after {
-      content: "";
+    font-size: 1.2rem;
+  }
 
-      width: 220px;
-      height: 1px;
+  .hero-undertitel::before,
+  .hero-undertitel::after {
+    content: "";
 
-      background: rgba(122, 0, 8, 0.4);
-    }
+    width: 220px;
+    height: 1px;
 
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      margin-top: 4rem;
-      gap: 1rem;
-      align-items: center;
-    }
+    background: rgba(122, 0, 8, 0.4);
+  }
 
-    .hero-content img {
-      width: 100%;
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    margin-top: 4rem;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero-content img {
+    width: 100%;
+  }
+
+  .hero-text {
+    padding-top: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  /* BESØG OS */
+
+  .besøgos {
+    background: var(--primary);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+    min-height: 500px;
+    padding: 1rem;
+
+    margin-top: 2rem;
+  }
+
+  .besøgos img {
+    width: 75%;
+  }
+
+  .visit-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 480px;
+  }
+
+  .visit-content h2 {
+    color: var(--accent);
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .visit-content p {
+    color: #f3d8dc;
+
+    font-size: 1.2rem;
+
+    line-height: 1.7;
+  }
+
+  .more-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .more-text.active {
+    max-height: 300px;
+    margin-bottom: 1rem;
+  }
+
+  .more-btn {
+    background: none;
+    border: none;
+
+    color: var(--accent);
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    margin-top: 1rem;
+  }
+
+  .info {
+    margin-top: 3rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    padding-top: 2rem;
+  }
+  /*Blomster */
+  .blomster {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+  .blomster img {
+    width: 450px;
+
+    transition: 0.3s ease;
+  }
+
+  .blomster img:hover {
+    transform: scale(1.08);
+  }
+
+  /* CRAZY ROOM */
+
+  .crazy-room {
+    background: var(--blaa);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    margin-top: 8rem;
+
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .crazy-room img {
+    width: 100%;
+    height: auto;
+  }
+
+  .crazy-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .crazy-content h2 {
+    background: var(--accent);
+
+    color: white;
+    padding: 0.8rem 4rem 0.8rem 1rem;
+    font-size: 2.5rem;
+    width: fit-content;
+
+    margin-bottom: 3rem;
+  }
+
+  .crazy-content p {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 900px) {
+    .hero-content,
+    .besøgos,
+    .crazy-room {
+      grid-template-columns: 1fr;
     }
 
     .hero-text {
-      padding-top: 2rem;
+      padding-top: 0;
     }
 
-    .hero-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    /* BESØG OS */
-
-    .besøgos {
-      background: var(--primary);
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      gap: 4rem;
-      min-height: 500px;
-      padding: 1rem;
-
-      margin-top: 2rem;
-    }
-
-    .besøgos img {
-      width: 75%;
-    }
-
-    .visit-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 480px;
-    }
-
-    .visit-content h2 {
-      color: var(--accent);
-      font-size: 4rem;
-      font-weight: 400;
-      margin-bottom: 2rem;
-    }
-
-    .visit-content p {
-      color: #f3d8dc;
-
-      font-size: 1.2rem;
-
-      line-height: 1.7;
-    }
-
-    .more-text {
-      max-height: 0;
-      overflow: hidden;
-      transition: 0.4s ease;
-    }
-
-    .more-text.active {
-      max-height: 300px;
-      margin-bottom: 1rem;
-    }
-
-    .more-btn {
-      background: none;
-      border: none;
-
-      color: var(--accent);
-
-      font-size: 1rem;
-
-      cursor: pointer;
-
-      margin-top: 1rem;
-    }
-
-    .info {
-      margin-top: 3rem;
-
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-
-      padding-top: 2rem;
-    }
-    /*Blomster */
-    .blomster {
-      display: flex;
-      justify-content: center;
-
-      margin-top: 8rem;
-      margin-bottom: 8rem;
-    }
-    .blomster img {
-      width: 450px;
-
-      transition: 0.3s ease;
-    }
-
-    .blomster img:hover {
-      transform: scale(1.08);
-    }
-
-    /* CRAZY ROOM */
-
+    .besøgos,
     .crazy-room {
-      background: var(--blaa);
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      gap: 1rem;
-
-      padding: 1rem;
-
-      margin-top: 8rem;
-
-      margin-right: 4rem;
-      margin-bottom: 4rem;
+      padding: 2rem;
     }
-
-    .crazy-room img {
-      width: 75%;
-    }
-
-    .crazy-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .crazy-content h2 {
-      background: var(--accent);
-
-      color: white;
-      padding: 0.8rem 4rem 0.8rem 1rem;
-      font-size: 2.5rem;
-      width: fit-content;
-
-      margin-bottom: 3rem;
-    }
-
-    .crazy-content p {
-      font-size: 1rem;
-
-      line-height: 1.7;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 900px) {
-      .hero-content,
-      .besøgos,
-      .crazy-room {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-text {
-        padding-top: 0;
-      }
-
-      .besøgos,
-      .crazy-room {
-        padding: 2rem;
-      }
-    }
-  </style></Layout
->
+  }
+</style>
