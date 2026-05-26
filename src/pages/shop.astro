@@ -1,6 +1,8 @@
 ---
 //@ts-nocheck
+
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 
 /*
 FETCH FRA SUPABASE
@@ -15,21 +17,27 @@ const options = {
   },
 };
 
-const products = await fetch(url, options)
-  .then((res) => res.json());
+const products = await fetch(url, options).then((res) => res.json());
 
 console.log(products);
 
 /*
-BILLEDER
+IMPORTÉR ALLE BILLEDER FRA src/assets/shop
 */
-const billeder = [
-  "/images/produkt2.JPG",
-  "/images/produkt3.JPG",
-];
+const billeder = import.meta.glob(
+  "../assets/shop/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}",
+  {
+    eager: true,
+  }
+);
 
-function hentBillede(index: number) {
-  return billeder[index % billeder.length];
+/*
+FIND BILLEDE VIA FILNAVN FRA SUPABASE
+*/
+function hentBillede(filnavn: string) {
+const path = `../assets/shop/${filnavn}`;
+
+  return billeder[path]?.default;
 }
 ---
 
@@ -38,17 +46,24 @@ function hentBillede(index: number) {
     <section class="shop-hero">
       <h1>Kunst hos Daisy</h1>
 
-      <nav class="filter-nav">
-        <a href="/shop" data-filter-link="alle">Alle</a>
-        <a href="/shop?kategori=Vægkunst" data-filter-link="Vægkunst">Vægkunst</a>
-        <a href="/shop?kategori=Drikkevarer" data-filter-link="Drikkevarer">Drikkevarer</a>
-      </nav>
+    <nav class="filter-nav">
+  <a href="/shop" data-filter-link="alle">Alle</a>
+  <a href="/shop?kategori=Vægkunst" data-filter-link="Vægkunst">Vægkunst</a>
+  <a href="/shop?kategori=Drikkevarer" data-filter-link="Drikkevarer">Drikkevarer</a>
+  <a href="/shop?kategori=Keramik" data-filter-link="Keramik">Keramik</a>
+  <a href="/shop?kategori=Linoleumstryk" data-filter-link="Linoleumstryk">Linoleumstryk</a>
+</nav>
     </section>
 
     <section class="products">
       {products?.map((product, index) => (
         <article class="product-card" data-kategori={product.kategori}>
-          <img src={hentBillede(index)} alt={product.produkt_navn} />
+  <Image
+            src={hentBillede(product.billede)}
+            alt={product.produkt_navn}
+            width={600}
+            height={600}
+          />
 
           <div class="product-info">
             <p>{product.kategori}</p>
@@ -63,7 +78,7 @@ function hentBillede(index: number) {
               data-pris={product.pris}
               data-storrelse={product.størrelse}
               data-beskrivelse={product.produkt_beskrivelse}
-              data-billede={hentBillede(index)}
+           data-billede={hentBillede(product.billede)?.src}
             >
               Læs mere
             </button>
