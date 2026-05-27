@@ -13,22 +13,25 @@ import diversitet from "../assets/om/diversitet.jpeg";
     <section class="hero">
       <div class="hero-content">
         <Image src={forside} alt="forsidebillede" />
-
         <div class="hero-text">
           <h1>OM DAISY</h1>
+
           <p>
             Daisy Kunstbar er et kreativt og stemningsfuldt samlingspunkt, hvor
             kunst, kultur og fællesskab mødes i øjenhøjde. Her er der plads til
             både fordybelse, inspiration og hyggelige stunder – uanset om du
             kommer for et glas vin, en koncert, en udstilling eller bare den
-            særlige atmosfære. Hos Daisy er ingen dage helt ens. Væggene er
-            fyldt med skiftende kunstværker, baren byder på nøje udvalgte
-            drikkevarer, og rummet danner løbende ramme om kreative events,
-            musik og sociale oplevelser. Ambitionen er at skabe et levende og
-            inkluderende miljø, hvor lokale kunstnere, kreative sjæle og gæster
-            kan mødes og føle sig hjemme. Daisy Kunstbar er mere end bare en bar
-            – det er et frirum for kreativitet, nærvær og gode oplevelser midt i
-            byen.
+            særlige atmosfære.
+            <p class="highlight-quote">Hos Daisy er ingen dage helt ens.</p>
+            <p>
+              Væggene er fyldt med skiftende kunstværker, baren byder på nøje
+              udvalgte drikkevarer, og rummet danner løbende ramme om kreative
+              events, musik og sociale oplevelser. Ambitionen er at skabe et
+              levende og inkluderende miljø, hvor lokale kunstnere, kreative
+              sjæle og gæster kan mødes og føle sig hjemme. Daisy Kunstbar er
+              mere end bare en bar – det er et frirum for kreativitet, nærvær og
+              gode oplevelser midt i byen.
+            </p>
           </p>
         </div>
       </div>
@@ -111,47 +114,45 @@ import diversitet from "../assets/om/diversitet.jpeg";
 
       display: grid;
       grid-template-columns: 1fr 1fr;
-
-      align-items: center;
-      gap: 3rem;
-    }
-
-    /* HØJRE SIDE */
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
+      grid-template-areas:
+        "image heading"
+        "image text";
+      align-items: start;
+      gap: 1.5rem;
     }
 
     /* H1 */
     .hero-content h1 {
+      grid-area: heading;
       font-size: 5rem;
       color: #6c0b0b;
-
-      margin: 0 0 2rem 0;
+      text-align: center;
+      margin-bottom: -0.5rem;
+      margin: 0 0 0.5rem 0;
       letter-spacing: 2px;
+    }
+    /* P-TEXT */
+    .hero-content p {
+      grid-area: text;
+      max-width: 700px;
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0.5;
+      margin-top: 1.5rem;
+    }
+    .highlight-quote {
+      font-style: italic;
     }
 
     /* BILLEDE */
     .hero-content img {
+      grid-area: image;
       width: 100%;
       max-width: 650px;
 
       display: block;
       margin: 0 auto;
-    }
-
-    /* P-TEXT */
-    .hero-content p {
-      font-size: 1.2rem;
-      line-height: 2;
-
-      max-width: 700px;
-
-      margin: 0;
     }
 
     /* .kearnevaerdier */
@@ -254,66 +255,42 @@ import diversitet from "../assets/om/diversitet.jpeg";
     @media (max-width: 900px) {
       .hero {
         padding: 2rem 1rem 4rem;
+        margin-bottom: 2rem;
       }
 
       .hero-content {
         display: flex;
         flex-direction: column;
-
         align-items: center;
         text-align: center;
-
-        gap: 2rem;
-      }
-
-      /* H1 ØVERST */
-      .hero-text {
-        order: 1;
-        width: 100%;
-      }
-      .hero-content img {
-        order: 2;
-      }
-
-      .hero-text p {
-        order: 3;
+        gap: 1.5rem;
       }
 
       .hero-content h1 {
+        order: 1;
         font-size: 3rem;
-        margin-bottom: 1rem;
+        margin: 0;
       }
 
-      /* BILLEDE I MIDTEN */
       .hero-content img {
+        order: 2;
+
         width: 100%;
         max-width: 400px;
         height: auto;
 
         object-fit: contain;
-
         margin: 0 auto;
       }
 
-      /* TEKST UNDER BILLEDE */
-      .hero-text p {
-        max-width: 100%;
+      .hero-content p {
+        order: 3;
 
+        max-width: 100%;
         font-size: 1rem;
         line-height: 1.8;
 
-        margin-top: 1rem;
-      }
-
-      .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      /* LUFT TIL NÆSTE SECTION */
-      .hero {
-        margin-bottom: 2rem;
+        margin: 0;
       }
     }
   </style>
