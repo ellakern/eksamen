@@ -22,9 +22,6 @@ const data = await fetch(url, options)
 
 console.log(data);
 
-/*
-TYPE
-*/
 type Event = {
   id: number;
   event_titel: string;
@@ -36,7 +33,7 @@ type Event = {
 };
 
 /*
-SORT EVENTS BY DATE + TIME
+SORTER EVENTS VED DATO + TID
 */
 data.sort((a: Event, b: Event) => {
 
@@ -48,7 +45,7 @@ data.sort((a: Event, b: Event) => {
 });
 
 /*
-GROUP BY MONTH
+GRUPPER EFTER MÅNED
 */
 const groupedEvents = data.reduce(
   (acc: Record<string, Event[]>, event: Event) => {
@@ -75,7 +72,7 @@ const groupedEvents = data.reduce(
 ---
 
 <Layout title="Kalender">
-
+  
   <section class="calendar">
 
     <h1>Kalender</h1>
@@ -97,7 +94,6 @@ const groupedEvents = data.reduce(
 
               <details class="event">
 
-                <!-- KLIK BAR -->
                 <summary>
 
                   <div class="left">
@@ -106,7 +102,6 @@ const groupedEvents = data.reduce(
 
                   <div class="right">
 
-                    <!-- DATO -->
                     <span>
                       {
                         new Date(event.event_dato)
@@ -117,7 +112,6 @@ const groupedEvents = data.reduce(
                       }
                     </span>
 
-                    <!-- TID -->
                     <span>
                       Kl. {event.event_tid.slice(0,5)}
                     </span>
@@ -126,7 +120,6 @@ const groupedEvents = data.reduce(
 
                 </summary>
 
-                <!-- CARD -->
                 <CalenderCard event={event} />
 
               </details>
@@ -162,9 +155,6 @@ const groupedEvents = data.reduce(
     margin-bottom: 3rem;
   }
 
-  /*
-  MONTH TITLE
-  */
   .monthTitle {
     display: flex;
     align-items: center;
@@ -187,9 +177,6 @@ const groupedEvents = data.reduce(
     font-size: 2rem;
   }
 
-  /*
-  EVENT
-  */
   .event {
     border-bottom:
       1px solid rgba(0,0,0,0.1);
@@ -197,9 +184,6 @@ const groupedEvents = data.reduce(
     padding-block: 1rem;
   }
 
-  /*
-  SUMMARY
-  */
   summary {
     list-style: none;
 
@@ -216,9 +200,6 @@ const groupedEvents = data.reduce(
     display: none;
   }
 
-  /*
-  LEFT
-  */
   .left {
     font-family: var(--font-p);
 
@@ -227,9 +208,6 @@ const groupedEvents = data.reduce(
     color: var(--text);
   }
 
-  /*
-  RIGHT
-  */
   .right {
     display: flex;
     flex-direction: column;
@@ -248,9 +226,6 @@ const groupedEvents = data.reduce(
     font-size: 0.9rem;
   }
 
-  /*
-  SPACE WHEN OPEN
-  */
   details[open] summary {
     margin-bottom: 1rem;
   }

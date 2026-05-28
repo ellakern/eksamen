@@ -1,13 +1,18 @@
 /* HEADER */
+html,
+body {
+  overflow-x: hidden;
+}
+
 .header {
   width: 100%;
 
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--primary);
 
-  padding: 0 2rem 0 2rem;
+  padding: 0.5rem 1rem;
 
   z-index: 2000;
 }
@@ -20,11 +25,12 @@
 
 /* LOGO */
 .logo img {
-  width: 18rem;
+  width: 150px;
+  height: auto;
   display: block;
 }
 
-/* MENU BUTTON */
+/* MENU KNAP */
 .menu-btn {
   background: none;
   border: none;
@@ -32,7 +38,8 @@
 }
 
 .menu-btn img {
-  width: 10rem;
+  width: 75px;
+  height: auto;
   transition: 0.3s ease;
 }
 
@@ -50,6 +57,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 6rem 1.5rem 8rem;
+  box-sizing: border-box;
+
+  min-height: 100dvh;
+
+  overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
@@ -78,7 +92,7 @@
   text-decoration: none;
 
   font-family: var(--font-h2);
-  font-size: 5.5rem;
+  font-size: 4rem;
   font-weight: 400;
 
   color: var(--background);
@@ -86,24 +100,24 @@
   line-height: 0.9;
 }
 
-/* FOOTER */
+/* MENU FOOTER */
 .menu-footer {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
 }
 
 .menu-footer p {
   color: var(--background);
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.1;
 }
 
 /* SOCIALS */
 .socials {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
 
   text-align: right;
 }
@@ -114,19 +128,28 @@
   text-decoration: none;
 
   font-family: var(--font-p);
-  font-size: 1.5rem;
+  font-size: 1rem;
 
   color: var(--background);
 }
 
 @media (min-width: 768px) {
+  .header {
+    padding: 0 2rem;
+    align-items: flex-start;
+  }
+
   .logo img {
-    height: 160px;
+    height: 175px;
     width: auto;
   }
 
   .menu-btn img {
     height: 110px;
     width: auto;
+  }
+
+  .fullscreen-menu nav ul li a {
+    font-size: 5rem;
   }
 }
