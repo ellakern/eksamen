@@ -18,20 +18,20 @@
 .footer__address {
   text-decoration: none;
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: var(--font-p);
 }
 
 .footer__hours {
   text-decoration: none;
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: var(--font-p);
 }
 
 .footer__icons {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .footer__icons img {
